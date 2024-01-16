@@ -17,9 +17,9 @@ export class Player {
         if (this.game.keys.indexOf('ArrowLeft') > -1) this.x -= this.speed;
         if (this.game.keys.indexOf('ArrowRight') > -1) this.x += this.speed;
         // horizontal boundaries
-        if (this.x < 0) this.x = 0;
-        else if (this.x > this.game.width - this.width) {
-            this.x = this.game.width - this.width
+        if (this.x < -this.width * 0.5) this.x = -this.width * 0.5;
+        else if (this.x > this.game.width - this.width * 0.5) {
+            this.x = this.game.width - this.width * 0.5;
         }
     }
 }
