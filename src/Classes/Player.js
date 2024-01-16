@@ -5,7 +5,7 @@ export class Player {
         this.height = 100;
         this.x = this.game.width * 0.5 - this.width * 0.5;
         this.y = this.game.height - this.height;
-        this.speed = 5;
+        this.speed = 10;
     }
 
     draw(context) {
@@ -13,6 +13,13 @@ export class Player {
     }
 
     update() {
-        this.x += this.speed;
+        // horizontal movement
+        if (this.game.keys.indexOf('ArrowLeft') > -1) this.x -= this.speed;
+        if (this.game.keys.indexOf('ArrowRight') > -1) this.x += this.speed;
+        // horizontal boundaries
+        if (this.x < 0) this.x = 0;
+        else if (this.x > this.game.width - this.width) {
+            this.x = this.game.width - this.width
+        }
     }
 }
