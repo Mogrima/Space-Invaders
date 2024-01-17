@@ -8,6 +8,7 @@ export class Game {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.keys = [];
+        this.score = 0;
         this.player = new Player(this);
 
         this.projectilesPool = [];
@@ -32,6 +33,7 @@ export class Game {
 
     }
     render(context) {
+        this.drawStatusText(context);
         this.player.draw(context);
         this.player.update();
         this.projectilesPool.forEach(projectile => {
@@ -48,7 +50,7 @@ export class Game {
             this.projectilesPool.push(new Projectile());
         }
     }
-    
+
     // get free projectile object from the pool
     getProjectile() {
         for (let i = 0; i < this.projectilesPool.length; i++) {
@@ -63,5 +65,9 @@ export class Game {
             rect2.x < rect1.x + rect1.width &&
             rect1.y < rect2.y + rect2.height &&
             rect2.y < rect1.y + rect1.height);
+    }
+
+    drawStatusText(context) {
+        context.fillText('Score: ' + this.score, 20, 40);
     }
 }
