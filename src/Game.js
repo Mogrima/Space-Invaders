@@ -1,5 +1,6 @@
 import { Player } from "./Classes/Player.js";
 import { Projectile } from "./Classes/Projectile.js";
+import { Wave } from "./Classes/Wave.js";
 
 export class Game {
     constructor(canvas) {
@@ -12,6 +13,13 @@ export class Game {
         this.projectilesPool = [];
         this.numberOfProjectiles = 10;
         this.createProjectiles();
+
+        this.columns = 3;
+        this.rows = 3;
+        this.enemySize = 60;
+
+        this.waves = [];
+        this.waves.push(new Wave(this));
 
         window.addEventListener('keydown', e => {
             if (this.keys.indexOf(e.key) === -1) this.keys.push(e.key);
@@ -29,6 +37,9 @@ export class Game {
         this.projectilesPool.forEach(projectile => {
             projectile.update();
             projectile.draw(context);
+        });
+        this.waves.forEach(wave => {
+            wave.render(context);
         })
     }
 
