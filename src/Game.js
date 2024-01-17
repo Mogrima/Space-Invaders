@@ -50,6 +50,7 @@ export class Game {
                     this.newWave();
                     this.waveCount++;
                     wave.nextWaveTrigger = true;
+                    this.player.lives++;
                 }
         })
     }
