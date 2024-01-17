@@ -1,7 +1,7 @@
 export class Projectile {
     constructor() {
-        this.width = 4;
-        this.height = 20;
+        this.width = 8;
+        this.height = 40;
         this.x = 0;
         this.y = 0;
         this.speed = 20;
@@ -17,10 +17,13 @@ export class Projectile {
     update() {
         if (!this.free) {
             this.y -= this.speed;
+            if (this.y < -this.height) this.reset();
         }
     }
-    start() {
+    start(x, y) {
         this.free = false;
+        this.x = x - this.width * 0.5;
+        this.y = y;
     }
     reset() {
         this.free = true;
