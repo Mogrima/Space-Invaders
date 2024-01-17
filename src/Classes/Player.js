@@ -22,4 +22,9 @@ export class Player {
             this.x = this.game.width - this.width * 0.5;
         }
     }
+
+    shoot() {
+        const projectile = this.game.getProjectile();
+        if (projectile) projectile.start(this.x + this.width * 0.5, this.y);
+    }
 }
