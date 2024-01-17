@@ -26,7 +26,9 @@ export class Wave {
         this.enemies.forEach(enemy => {
             enemy.update(this.x, this.y);
             enemy.draw(context);
-        })
+        });
+
+        this.enemies = this.enemies.filter(object => !object.markedForDeletion);
     }
 
     create() {

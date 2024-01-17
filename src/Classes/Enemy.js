@@ -7,6 +7,7 @@ export class Enemy {
         this.y = 0;
         this.positionX = positionX;
         this.positionY = positionY;
+        this.markedForDeletion = false;
     }
 
     draw(context) {
@@ -16,5 +17,12 @@ export class Enemy {
     update(x, y) {
         this.x = x + this.positionX;
         this.y = y + this.positionY;
+
+        this.game.projectilesPool.forEach(projectile => {
+            if (!projectile.free && this.game.checkCollision(this, projectile)) {
+                this.markedForDeletion = true;
+                projectile.reset();
+            }
+        });
     }
 }
