@@ -9,14 +9,15 @@ export class Game {
         this.height = this.canvas.height;
         this.keys = [];
         this.score = 0;
+        this.gameOver = false;
         this.player = new Player(this);
 
         this.projectilesPool = [];
         this.numberOfProjectiles = 10;
         this.createProjectiles();
 
-        this.columns = 3;
-        this.rows = 3;
+        this.columns = 7;
+        this.rows = 5;
         this.enemySize = 60;
 
         this.waves = [];
@@ -68,6 +69,16 @@ export class Game {
     }
 
     drawStatusText(context) {
+        context.save();
+        context.shadowOffsetX = 2;
+        context.shadowOffsetY = 2;
+        context.shadowColor = 'black';
         context.fillText('Score: ' + this.score, 20, 40);
+        if (this.gameOver) {
+            context.textAlign = 'center';
+            context.font = '100px Impact';
+            context.fillText('GAME OVER!', this.width * 0.5, this.height * 0.5);
+        }
+        context.restore();
     }
 }

@@ -25,5 +25,10 @@ export class Enemy {
                 this.game.score++;
             }
         });
+
+        if (this.y + this.height > this.game.height) {
+            this.game.gameOver = true;
+            this.markedForDeletion = true;
+        }
     }
 }
