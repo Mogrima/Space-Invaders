@@ -16,8 +16,8 @@ export class Game {
         this.numberOfProjectiles = 10;
         this.createProjectiles();
 
-        this.columns = 5;
-        this.rows = 5;
+        this.columns = 2;
+        this.rows = 2;
         this.enemySize = 60;
 
         this.waves = [];
@@ -27,6 +27,8 @@ export class Game {
         window.addEventListener('keydown', e => {
             if (this.keys.indexOf(e.key) === -1) this.keys.push(e.key);
             if (e.key === '1') this.player.shoot();
+            if ((e.key === 'r' || e.key === 'R' || e.key === 'к' || e.key === 'К') &&
+                this.gameOver) this.restart();
         });
         window.addEventListener('keyup', e => {
             const index = this.keys.indexOf(e.key);
@@ -91,6 +93,8 @@ export class Game {
             context.textAlign = 'center';
             context.font = '100px Impact';
             context.fillText('GAME OVER!', this.width * 0.5, this.height * 0.5);
+            context.font = '20px Impact';
+            context.fillText('Press R to restart!', this.width * 0.5, this.height * 0.5 + 30);
         }
         context.restore();
     }
@@ -103,5 +107,16 @@ export class Game {
             this.rows++;
         }
         this.waves.push(new Wave(this));
+    }
+
+    restart() {
+        this.player.restart();
+        this.columns = 2;
+        this.rows = 2;
+        this.waves = [];
+        this.waves.push(new Wave(this));
+        this.waveCount = 1;
+        this.score = 0;
+        this.gameOver = false;
     }
 }
