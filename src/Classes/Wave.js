@@ -1,4 +1,4 @@
-import { Enemy } from "./Enemy.js";
+import { Beetlemorph } from "./Beetlemorph.js";
 
 export class Wave {
     constructor(game) {
@@ -37,7 +37,7 @@ export class Wave {
             for (let x = 0; x < this.game.columns; x++) {
                 let enemyX = x * this.game.enemySize;
                 let enemyY = y * this.game.enemySize;
-                this.enemies.push(new Enemy(this.game, enemyX, enemyY));
+                this.enemies.push(new Beetlemorph(this.game, enemyX, enemyY));
             }
         }
     }
