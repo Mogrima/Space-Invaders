@@ -6,3 +6,7 @@
     translate: -50% -50%;
     background-image: url('../Assets/background.png');
 }
+
+#beetlemorph {
+    display: none;
+}
