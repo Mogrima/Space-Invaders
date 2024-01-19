@@ -22,7 +22,7 @@ export class Enemy {
 
         this.game.projectilesPool.forEach(projectile => {
             if (!projectile.free && this.game.checkCollision(this, projectile)) {
-                this.markedForDeletion = true;
+                this.hit(1);
                 projectile.reset();
                 if (!this.game.gameOver) this.game.score++;
             }
@@ -41,5 +41,9 @@ export class Enemy {
             this.game.gameOver = true;
             this.markedForDeletion = true;
         }
+    }
+
+    hit(damage) {
+        this.lives -= damage;
     }
 }
