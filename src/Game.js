@@ -15,6 +15,7 @@ export class Game {
         this.projectilesPool = [];
         this.numberOfProjectiles = 10;
         this.createProjectiles();
+        this.fired = false;
 
         this.columns = 2;
         this.rows = 2;
@@ -26,11 +27,13 @@ export class Game {
 
         window.addEventListener('keydown', e => {
             if (this.keys.indexOf(e.key) === -1) this.keys.push(e.key);
-            if (e.key === '1') this.player.shoot();
+            if (e.key === '1' && !this.fired) this.player.shoot();
+            this.fired = true;
             if ((e.key === 'r' || e.key === 'R' || e.key === 'к' || e.key === 'К') &&
                 this.gameOver) this.restart();
         });
         window.addEventListener('keyup', e => {
+            this.fired = false;
             const index = this.keys.indexOf(e.key);
             if (index > -1) this.keys.splice(index, 1);
         });
