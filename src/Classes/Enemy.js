@@ -24,9 +24,16 @@ export class Enemy {
             if (!projectile.free && this.game.checkCollision(this, projectile)) {
                 this.hit(1);
                 projectile.reset();
-                if (!this.game.gameOver) this.game.score++;
             }
         });
+
+        if (this.lives < 1) {
+            this.frameX++;
+            if (this.frameX > this.maxFrame) {
+                this.markedForDeletion = true;
+                if (!this.game.gameOver) this.game.score += this.maxLives;
+            }
+        }
 
         if (this.game.checkCollision(this, this.game.player)) {
             this.markedForDeletion = true;
