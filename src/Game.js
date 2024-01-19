@@ -25,6 +25,10 @@ export class Game {
         this.waves.push(new Wave(this));
         this.waveCount = 1;
 
+        this.spriteUpdate = false;
+        this.spriteTimer = 0;
+        this.spriteInterval = 120;
+
         window.addEventListener('keydown', e => {
             if (this.keys.indexOf(e.key) === -1) this.keys.push(e.key);
             if (e.key === '1' && !this.fired) this.player.shoot();
@@ -39,7 +43,14 @@ export class Game {
         });
 
     }
-    render(context) {
+    render(context, deltaTime) {
+        if (this.spriteTimer > this.spriteInterval) {
+            this.spriteUpdate = true;
+            this.spriteTimer = 0;
+        } else {
+            this.spriteUpdate = false;
+            this.spriteTimer += deltaTime;
+        }
         this.drawStatusText(context);
         this.player.draw(context);
         this.player.update();
