@@ -12,6 +12,7 @@ export class Wave {
         this.speedY = 0;
         this.enemies = [];
         this.nextWaveTrigger = false;
+        this.markedForDeletion = false;
         this.create();
     }
 
@@ -31,6 +32,7 @@ export class Wave {
         });
 
         this.enemies = this.enemies.filter(object => !object.markedForDeletion);
+        if (this.enemies.length <= 0) this.markedForDeletion = true;
     }
 
     create() {

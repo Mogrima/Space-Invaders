@@ -124,6 +124,7 @@ export class Game {
             this.rows++;
         }
         this.waves.push(new Wave(this));
+        this.waves = this.waves.filter(object => !object.markedForDeletion);
     }
 
     restart() {
