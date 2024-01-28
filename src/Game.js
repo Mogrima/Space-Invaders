@@ -60,13 +60,13 @@ export class Game {
             projectile.update();
             projectile.draw(context);
         });
+        this.player.draw(context);
+        this.player.update();
         this.bossArray.forEach(boss => {
             boss.draw(context);
             boss.update();
         });
         this.bossArray = this.bossArray.filter(object => !object.markedForDeletion);
-        this.player.draw(context);
-        this.player.update();
         this.waves.forEach(wave => {
             wave.render(context);
             if (wave.enemies.length < 1 &&
