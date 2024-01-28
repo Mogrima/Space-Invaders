@@ -29,6 +29,8 @@ export class Game {
         this.spriteTimer = 0;
         this.spriteInterval = 120;
 
+        this.restart();
+
         window.addEventListener('keydown', e => {
             if (this.keys.indexOf(e.key) === -1) this.keys.push(e.key);
             if (e.key === '1' && !this.fired) this.player.shoot();
