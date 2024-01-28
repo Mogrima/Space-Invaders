@@ -1,5 +1,5 @@
-import { Beetlemorph } from "./Beetlemorph.js";
-import { Rhinomorph } from "./Rhinomorph.js";
+import { Beetlemorph } from "./Enemies/Beetlemorph.js";
+import { Rhinomorph } from "./Enemies/Rhinomorph.js";
 
 export class Wave {
     constructor(game) {

@@ -1,7 +1,7 @@
 import { Player } from "./Classes/Player.js";
 import { Projectile } from "./Classes/Projectile.js";
 import { Wave } from "./Classes/Wave.js";
-import { Boss } from "./Classes/Boss.js";
+import { Boss } from "./Classes/Enemies/Boss.js";
 
 export class Game {
     constructor(canvas) {
