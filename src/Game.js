@@ -1,6 +1,7 @@
 import { Player } from "./Classes/Player.js";
 import { Projectile } from "./Classes/Projectile.js";
 import { Wave } from "./Classes/Wave.js";
+import { Boss } from "./Classes/Boss.js";
 
 export class Game {
     constructor(canvas) {
@@ -22,8 +23,9 @@ export class Game {
         this.enemySize = 80;
 
         this.waves = [];
-        this.waves.push(new Wave(this));
         this.waveCount = 1;
+        this.bossArray = [];
+        this.bossLives = 10;
 
         this.spriteUpdate = false;
         this.spriteTimer = 0;
@@ -58,6 +60,11 @@ export class Game {
             projectile.update();
             projectile.draw(context);
         });
+        this.bossArray.forEach(boss => {
+            boss.draw(context);
+            boss.update();
+        });
+        this.bossArray = this.bossArray.filter(object => !object.markedForDeletion);
         this.player.draw(context);
         this.player.update();
         this.waves.forEach(wave => {
@@ -66,9 +73,7 @@ export class Game {
                 !wave.nextWaveTrigger &&
                 !this.gameOver) {
                     this.newWave();
-                    this.waveCount++;
                     wave.nextWaveTrigger = true;
-                    if (this.player.lives < this.player.maxLives) this.player.lives++;
                 }
         })
     }
@@ -119,13 +124,21 @@ export class Game {
     }
 
     newWave() {
-        if (Math.random() < 0.5 &&
+        this.waveCount++;
+        if (this.player.lives < this.player.maxLives) this.player.lives++;
+        if (this.waveCount % 2 === 0) {
+            this.bossArray.push(new Boss(this, this.bossLives));
+
+        } else {
+            if (Math.random() < 0.5 &&
             this.columns * this.enemySize < this.width * 0.8) {
             this.columns++;
         } else if (this.rows * this.enemySize < this.height * 0.6) {
             this.rows++;
+            }
+            this.waves.push(new Wave(this));
         }
-        this.waves.push(new Wave(this));
+        
         this.waves = this.waves.filter(object => !object.markedForDeletion);
     }
 
@@ -134,6 +147,8 @@ export class Game {
         this.columns = 2;
         this.rows = 2;
         this.waves = [];
+        this.bossArray = [];
+        this.bossLives = 10;
         this.waves.push(new Wave(this));
         this.waveCount = 1;
         this.score = 0;
