@@ -1,3 +1,6 @@
+import { SmallLaser } from "./Weapon/SmallLaser.js";
+import { BigLaser } from "./Weapon/BigLaser.js";
+
 export class Player {
     constructor(game) {
         this.game = game;
@@ -12,12 +15,20 @@ export class Player {
         this.player_jets = document.getElementById('player_jets');
         this.frameX = 0;
         this.jetsFrame = 1;
+        this.smallLaser = new SmallLaser(this.game);
+        this.bigLaser = new BigLaser(this.game);
     }
 
     draw(context) {
         // context.fillRect(this.x, this.y, this.width, this.height);
         if (this.game.keys.indexOf('1') > -1) {
             this.frameX = 1;
+        } else if (this.game.keys.indexOf('2') > -1) {
+            this.frameX = 2;
+            this.smallLaser.render(context);
+        } else if (this.game.keys.indexOf('3') > -1) {
+            this.frameX = 3;
+            this.bigLaser.render(context);
         } else {
             this.frameX = 0;
         }
