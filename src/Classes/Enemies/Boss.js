@@ -59,6 +59,7 @@ export class Boss {
             this.frameX++;
             if (this.frameX > this.maxFrame) {
                 this.markedForDeletion = true;
+                this.game.sound.BigExplosion();
                 this.game.score += this.maxLives;
                 this.game.bossLives += 5;
                 if (!this.game.gameOver) this.game.newWave();

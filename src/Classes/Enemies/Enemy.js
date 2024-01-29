@@ -32,6 +32,7 @@ export class Enemy {
             if (this.game.spriteUpdate) this.frameX++;
             if (this.frameX > this.maxFrame) {
                 this.markedForDeletion = true;
+                this.game.sound.SmallExplosion();
                 if (!this.game.gameOver) this.game.score += this.maxLives;
             }
         }
