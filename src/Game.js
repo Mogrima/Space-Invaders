@@ -2,6 +2,7 @@ import { Player } from "./Classes/Player.js";
 import { Projectile } from "./Classes/Projectile.js";
 import { Wave } from "./Classes/Wave.js";
 import { Boss } from "./Classes/Enemies/Boss.js";
+import { SoundController } from "./Classes/SoundController.js";
 
 export class Game {
     constructor(canvas) {
@@ -12,6 +13,8 @@ export class Game {
         this.score = 0;
         this.gameOver = false;
         this.player = new Player(this);
+        this.sound = new SoundController();
+        this.sound.mainSound();
 
         this.projectilesPool = [];
         this.numberOfProjectiles = 15;
