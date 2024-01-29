@@ -14,7 +14,7 @@ export class Game {
         this.gameOver = false;
         this.player = new Player(this);
         this.sound = new SoundController();
-        this.sound.mainSound();
+        // this.sound.mainSound();
 
         this.projectilesPool = [];
         this.numberOfProjectiles = 15;
@@ -34,7 +34,6 @@ export class Game {
         this.spriteTimer = 0;
         this.spriteInterval = 120;
 
-        this.restart();
 
         window.addEventListener('keydown', e => {
             if (this.keys.indexOf(e.key) === -1) this.keys.push(e.key);
@@ -154,6 +153,7 @@ export class Game {
     }
 
     restart() {
+        this.sound.mainSound();
         this.player.restart();
         this.columns = 2;
         this.rows = 2;
