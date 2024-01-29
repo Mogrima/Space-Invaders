@@ -44,7 +44,10 @@ export class Player {
     update() {
         // energy
         if (this.energy < this.maxEnergy) this.energy += 0.05;
-        if (this.energy < 1) this.cooldown = true;
+        if (this.energy < 1) {
+            this.cooldown = true;
+            this.game.sound.Cooldown();
+        }
         else if (this.energy > this.maxEnergy * 0.2) this.cooldown = false;
         // horizontal movement
         if (this.game.keys.indexOf('ArrowLeft') > -1) {

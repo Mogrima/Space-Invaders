@@ -3,6 +3,7 @@ export class SoundController {
         this.space = document.getElementById('space');
         this.explosionEnemy = document.getElementById('explosionEnemy');
         this.explosionBoss = document.getElementById('explosionBoss');
+        this.cooldown = document.getElementById('cooldown');
     }
 
     mainSound() {
@@ -20,5 +21,11 @@ export class SoundController {
     BigExplosion() {
         this.explosionBoss.currentTime = 0;
         this.explosionBoss.play();
+    }
+
+    Cooldown() {
+        this.cooldown.currentTime = 0;
+        this.cooldown.volume = 0.1;
+        this.cooldown.play();
     }
 }
