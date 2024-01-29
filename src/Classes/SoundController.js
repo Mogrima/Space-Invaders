@@ -4,6 +4,7 @@ export class SoundController {
         this.explosionEnemy = document.getElementById('explosionEnemy');
         this.explosionBoss = document.getElementById('explosionBoss');
         this.cooldown = document.getElementById('cooldown');
+        this.laser = document.getElementById('laser');
     }
 
     mainSound() {
@@ -27,5 +28,11 @@ export class SoundController {
         this.cooldown.currentTime = 0;
         this.cooldown.volume = 0.1;
         this.cooldown.play();
+    }
+
+    Laser() {
+        this.laser.loop = true;
+        this.laser.volume = 0.1;
+        this.laser.play();
     }
 }

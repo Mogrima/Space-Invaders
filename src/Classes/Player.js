@@ -32,8 +32,11 @@ export class Player {
         } else if (this.game.keys.indexOf('3') > -1) {
             // this.frameX = 3;
             this.bigLaser.render(context);
+            if (!this.cooldown) this.game.sound.Laser();
+           
         } else {
             this.frameX = 0;
+            this.game.sound.laser.pause();
         }
         context.drawImage(this.player_jets, this.jetsFrame * this.width, 0,
             this.width, this.height, this.x, this.y, this.width, this.height);
@@ -47,6 +50,7 @@ export class Player {
         if (this.energy < 1) {
             this.cooldown = true;
             this.game.sound.Cooldown();
+            this.game.sound.laser.pause();
         }
         else if (this.energy > this.maxEnergy * 0.2) this.cooldown = false;
         // horizontal movement
