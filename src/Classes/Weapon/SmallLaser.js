@@ -8,6 +8,9 @@ export class SmallLaser extends Laser {
     }
 
     render(context) {
-        super.render(context);
+        if (this.game.player.energy > 1 && !this.game.player.cooldown) {
+            super.render(context);
+            this.game.player.frameX = 2;
+        }
     }
 }

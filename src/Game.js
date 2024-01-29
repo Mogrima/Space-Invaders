@@ -113,6 +113,14 @@ export class Game {
         for (let i = 0; i < this.player.lives; i++) {
             context.fillRect(20 + 20 * i, 100, 10, 15);
         }
+        // energy
+        context.save();
+        this.player.cooldown ? context.fillStyle = 'red' :
+        context.fillStyle = 'gold';
+        for (let i = 0; i < this.player.energy; i++) {
+            context.fillRect(20 + 2 * i, 130, 2, 15);
+        }
+        context.restore();
         if (this.gameOver) {
             context.textAlign = 'center';
             context.font = '100px Impact';
