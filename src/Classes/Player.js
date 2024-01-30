@@ -1,5 +1,5 @@
-import { SmallLaser } from "./Weapon/SmallLaser.js";
-import { BigLaser } from "./Weapon/BigLaser.js";
+import { SmallLaser } from './Weapon/SmallLaser.js';
+import { BigLaser } from './Weapon/BigLaser.js';
 
 export class Player {
     constructor(game) {
@@ -33,7 +33,7 @@ export class Player {
             // this.frameX = 3;
             this.bigLaser.render(context);
             if (!this.cooldown) this.game.sound.Laser();
-           
+
         } else {
             this.frameX = 0;
             this.game.sound.laser.pause();
@@ -51,8 +51,7 @@ export class Player {
             this.cooldown = true;
             this.game.sound.Cooldown();
             this.game.sound.laser.pause();
-        }
-        else if (this.energy > this.maxEnergy * 0.2) this.cooldown = false;
+        } else if (this.energy > this.maxEnergy * 0.2) this.cooldown = false;
         // horizontal movement
         if (this.game.keys.indexOf('ArrowLeft') > -1) {
             this.x -= this.speed;

@@ -1,4 +1,4 @@
-import { Laser } from "./Laser.js";
+import { Laser } from './Laser.js';
 
 export class SmallLaser extends Laser {
     constructor(game) {

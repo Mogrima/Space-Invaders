@@ -1,4 +1,4 @@
-import { Laser } from "./Laser.js";
+import { Laser } from './Laser.js';
 
 export class BigLaser extends Laser {
     constructor(game) {
@@ -11,7 +11,7 @@ export class BigLaser extends Laser {
         if (this.game.player.energy > 1 && !this.game.player.cooldown) {
             super.render(context);
             this.game.player.frameX = 3;
-            
+
         }
     }
 }

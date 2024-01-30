@@ -16,7 +16,7 @@ export class Laser {
         context.fillStyle = 'gold';
         context.fillRect(this.x, this.y, this.width, this.height);
         context.fillStyle = 'white';
-        context.fillRect(this.x + this.width * 0.2, this.y, 
+        context.fillRect(this.x + this.width * 0.2, this.y,
             this.width * 0.6, this.height);
         context.restore();
 
@@ -28,7 +28,7 @@ export class Laser {
                     }
                 });
             });
-    
+
             this.game.bossArray.forEach(boss => {
                 if (this.game.checkCollision(boss, this) && boss.y >= 0) {
                     boss.hit(this.damage);

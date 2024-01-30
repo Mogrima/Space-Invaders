@@ -1,5 +1,5 @@
-import { Beetlemorph } from "./Enemies/Beetlemorph.js";
-import { Rhinomorph } from "./Enemies/Rhinomorph.js";
+import { Beetlemorph } from './Enemies/Beetlemorph.js';
+import { Rhinomorph } from './Enemies/Rhinomorph.js';
 
 export class Wave {
     constructor(game) {
@@ -38,8 +38,8 @@ export class Wave {
     create() {
         for (let y = 0; y < this.game.rows; y++) {
             for (let x = 0; x < this.game.columns; x++) {
-                let enemyX = x * this.game.enemySize;
-                let enemyY = y * this.game.enemySize;
+                const enemyX = x * this.game.enemySize;
+                const enemyY = y * this.game.enemySize;
                 if (Math.random() > 0.5) this.enemies.push(new Beetlemorph(this.game, enemyX, enemyY));
                 else this.enemies.push(new Rhinomorph(this.game, enemyX, enemyY));
             }

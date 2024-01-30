@@ -1,8 +1,8 @@
-import { Player } from "./Classes/Player.js";
-import { Projectile } from "./Classes/Projectile.js";
-import { Wave } from "./Classes/Wave.js";
-import { Boss } from "./Classes/Enemies/Boss.js";
-import { SoundController } from "./Classes/SoundController.js";
+import { Player } from './Classes/Player.js';
+import { Projectile } from './Classes/Projectile.js';
+import { Wave } from './Classes/Wave.js';
+import { Boss } from './Classes/Enemies/Boss.js';
+import { SoundController } from './Classes/SoundController.js';
 
 export class Game {
     constructor(canvas) {
@@ -74,10 +74,10 @@ export class Game {
             if (wave.enemies.length < 1 &&
                 !wave.nextWaveTrigger &&
                 !this.gameOver) {
-                    this.newWave();
-                    wave.nextWaveTrigger = true;
-                }
-        })
+                this.newWave();
+                wave.nextWaveTrigger = true;
+            }
+        });
     }
 
     createProjectiles() {
@@ -93,7 +93,7 @@ export class Game {
         }
     }
 
-    
+
     checkCollision(rect1, rect2) {
         return (
             rect1.x < rect2.x + rect2.width &&
@@ -118,7 +118,7 @@ export class Game {
         // energy
         context.save();
         this.player.cooldown ? context.fillStyle = 'red' :
-        context.fillStyle = 'gold';
+            context.fillStyle = 'gold';
         for (let i = 0; i < this.player.energy; i++) {
             context.fillRect(20 + 2 * i, 130, 2, 15);
         }
@@ -142,13 +142,13 @@ export class Game {
         } else {
             if (Math.random() < 0.5 &&
             this.columns * this.enemySize < this.width * 0.8) {
-            this.columns++;
-        } else if (this.rows * this.enemySize < this.height * 0.6) {
-            this.rows++;
+                this.columns++;
+            } else if (this.rows * this.enemySize < this.height * 0.6) {
+                this.rows++;
             }
             this.waves.push(new Wave(this));
         }
-        
+
         this.waves = this.waves.filter(object => !object.markedForDeletion);
     }
 

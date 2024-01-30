@@ -18,7 +18,7 @@ export class Boss {
 
     draw(context) {
         context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height,
-                this.width, this.height, this.x, this.y, this.width, this.height);
+            this.width, this.height, this.x, this.y, this.width, this.height);
         if (this.lives >= 1) {
             context.save();
             context.textAlign = 'center';
