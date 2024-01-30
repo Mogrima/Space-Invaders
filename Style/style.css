@@ -27,21 +27,26 @@ html {
     max-height: 100%;
 }
 
-p,
-label {
-  font:
-    1rem 'Fira Sans',
-    sans-serif;
+.volume_label {
+    font-family: 'Impact', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
 }
 
 input {
   margin: 0.4rem;
 }
 
+.range_wrapper {
+    margin: 0 auto;
+    margin-top: auto;
+}
+
 .big-button {
     position: relative;
     width: 250px;
-    margin: auto auto;
+    margin: 0 auto;
+    margin-top: auto;
+    margin-bottom: 100px;
     font-family: 'Impact', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 23px;
     text-align: center;
