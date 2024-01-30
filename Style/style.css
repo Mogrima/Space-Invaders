@@ -27,6 +27,17 @@ html {
     max-height: 100%;
 }
 
+p,
+label {
+  font:
+    1rem 'Fira Sans',
+    sans-serif;
+}
+
+input {
+  margin: 0.4rem;
+}
+
 .big-button {
     position: relative;
     width: 250px;
