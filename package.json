@@ -1,0 +1,15 @@
+{
+  "name": "space-invaders",
+  "version": "1.0.0",
+  "description": "Space Invaders is a 1978 shoot 'em up arcade video game developed and released by Taito in Japan. Commonly considered as one of the most influential video games of all time, Space Invaders was the first fixed shooter and set the template for the genre. The goal is to defeat wave after wave of descending aliens with a horizontally moving laser to earn as many points as possible.\r ___",
+  "main": "srcipt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint"
+  },
+  "author": "Mogrima",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.56.0"
+  }
+}
