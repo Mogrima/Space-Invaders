@@ -5,7 +5,12 @@ ___
 ![Изображение][1]
 
 ## Control
-Move the lazar using buttons &#11013; &#10145;. Shooting on key 1
+1. Move the lazar using buttons &#11013; &#10145;.
+2. Shooting on key 1
+3. Use a small laser on key 2
+4. Use a big laser in key 3
+
+Monitor your energy levels to prevent cooldown!
 
 ## How to play
 1. You can open the game in a browser using the [link](https://mogrima.github.io/Space-Invaders/)
